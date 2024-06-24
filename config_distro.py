@@ -10,6 +10,11 @@ DEFAULT_BINARY_PATHS = {
         'pg-12': '/usr/local/pgsql-12'
 }
 
-X_CONTENT_TYPE_OPTIONS = ""    # default value is nosniff
+# Allows pgAdmin4 to create session cookies based on IP address, so even
+# if a cookie is stolen, the attacker will not be able to connect to the
+# server using that stolen cookie.
+# Note: This can cause problems when the server is deployed in dynamic IP
+# address hosting environments, such as Kubernetes or behind load
+# balancers. In such cases, this option should be set to False.
+##########################################################################
 ENHANCED_COOKIE_PROTECTION = False
-X_XSS_PROTECTION = "0"  # default value is '1; mode=block'
